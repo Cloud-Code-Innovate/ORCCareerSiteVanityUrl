@@ -4,9 +4,6 @@ Welcome to the Configure HCM Vanity URL hands-on lab. This lab will walk you thr
 
 - Configure HCM SaaS, APIGW and Serverless Function.
 
-*{Note: This lab assumes you are using PeopleSoft Financials and Supply Chain Management 9.2 and Oracle Digital Assistant 20.09.}*
-
-
 ## Access the Labs Using Our Web Interface
 **Click the image to use our easy to navigate HTML format:**
 https://code-innovate.github.io/peoplesoft-oda-workshop/
