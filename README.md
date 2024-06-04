@@ -1,9 +1,8 @@
-# Configure Requisition bot on PeopleSoft
+# Configure HCM Vanity URL
 
-Welcome to the Configure Requisition bot on PeopleSoft hands-on lab. This lab will walk you through the following tasks:
+Welcome to the Configure HCM Vanity URL hands-on lab. This lab will walk you through the following tasks:
 
-- Install and configure the Requisition Skill in Oracle Digital Assistant.
-- Guide you to connect the PeopleSoft environment with the Requisition Skill.
+- Configure HCM SaaS, APIGW and Serverless Function.
 
 *{Note: This lab assumes you are using PeopleSoft Financials and Supply Chain Management 9.2 and Oracle Digital Assistant 20.09.}*
 
