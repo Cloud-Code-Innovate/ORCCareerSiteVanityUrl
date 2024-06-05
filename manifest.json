@@ -4,29 +4,25 @@
             "title": "Prerequisites",
             "filename": "./prereq/prereq.md"
           },
-
           {
-            "title": "Lab 1: Configure the HCM Instance",
-            "filename": "./configure-hcm/1-configure-hcm.md"
-          },
-          
-          {
-              "title": "Lab 2: Configure Oracle Serverless Function",
-              "filename": "./configure-oci-fn/2-OCI-fn.md"
-          },
-          {
-            "title": "Lab 3: Configure Oracle API Gateway",
-            "filename": "./configure-oci-apigw/3-OCI-apigw.md"
+            "title": "Lab 1: Configure Oracle Serverless Function",
+            "filename": "./configure-oci-fn/OCI-fn.md"
         },
         {
-          "title": "Lab 4: Configure DNS",
-          "filename": "./configure-oci-dns/4-OCI-dns.md"
+          "title": "Lab 2: Configure Oracle API Gateway",
+          "filename": "./configure-oci-apigw/OCI-apigw.md"
       },
+      {
+        "title": "Lab 3: Configure DNS",
+        "filename": "./configure-oci-dns/OCI-dns.md"
+    },
+      {
+            "title": "Lab 4: Configure the HCM Instance",
+            "filename": "./configure-hcm/configure-hcm.md"
+          },
           {
             "title": "Lab 5: Test your Setup",
-            "filename": "./test-lab/5-test-lab.md"
+            "filename": "./test-lab/test-lab.md"
           }
-
-
     ]
 }
