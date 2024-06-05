@@ -1,8 +1,11 @@
-# Configure the Requisition Skill on Oracle Digital Assistant
+# Configure HCM instance. 
+
+
+## Update
 
 ## **Introduction**
 
-- This lab will guide you through the steps to configure the Requisition Skill on Oracle Digital Assistant.
+- This lab will guide you through the steps to configure the API Gateway URL.
 
 Estimated Time: 10 minutes
 
