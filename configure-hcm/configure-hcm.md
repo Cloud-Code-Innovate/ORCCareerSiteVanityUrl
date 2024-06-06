@@ -1,7 +1,5 @@
 # Configure HCM instance. 
 
-## Update
-
 ## **Introduction**
 
 - This lab will help you enable your Vanity URL feature in your HCM instance.
@@ -16,13 +14,13 @@ Estimated Time: 10 minutes
 
 1. Sign in to your HCM instance with your admin credentials. 
 
-2. In the Setup and Maintenance work area, go to:   
+2. In the *Setup and Maintenance* work area, go to:   
 
     ![](images/hcm_setup.png " ")
 
-    - Setup: Recruiting and Candidate Experience
-    - Functional Area: Recruiting and Candidate Experience Management
-    - Task: Enterprise Recruiting and Candidate Experience Information
+    - *Setup*: Recruiting and Candidate Experience
+    - *Functional Area*: Recruiting and Candidate Experience Management
+    - *Task*: Enterprise Recruiting and Candidate Experience Information
 
     ![](images/hcm_recruiting_candidate_exp.png " ")
 
@@ -40,22 +38,24 @@ Estimated Time: 10 minutes
 
 ## **Step 2:** Update CORS 
 
-1. Go back to Setup and Maintenance work area. Click on the *Tasks icon* and *Search*. 
+1. Go back to *Setup and Maintenance* work area. Click on the *Tasks icon* and *Search*. 
 
     ![](images/hcm_search.png " ")
 
-2. 
+2. Search for the task *Manage Administrator Profile Values*.
+
     ![](images/hcm_manage_admin.png " ")
 
-3. Update CORS ORIGINs.
+3. On the Manage Administrator Profile Values page, search for the profile option code %CORS%. Select ORA_CORS_ORIGINS.Go to the Profile Values section. Update the *Profile value* of the Profile level *Site* as follows:
 
     ```<copy>
+    ##
     'self' [Enter vanity url]
     ```
 
     ![](images/hcm_origin.png " ")
 
-4. Update CORS Header. 
+4. Search for the profile option CORS_ACCESS_CONTROL_ALLOW_HEADERS.Go to the Profile Values section. Append these values to existing profile option value:
 
     ```<copy>
     , ora-irc-language, ora-irc-access-code, ora-irc-validation-mode, ora-irc-vanity-domain, ora-irc-cx-userid, ora-irc-oauth-token, ora-irc-cx-timestamp, ora-irc-rest-action
@@ -63,12 +63,15 @@ Estimated Time: 10 minutes
 
     ![](images/hcm_headers.png " ")
 
+    *Note*: Verify that you have entered the values exactly as specified. Make sure that there’s no extra blank space or missing hyphens.
 
+5. Click Save and Close.
 
 You may now *proceed to the next lab*.
 
 
-## Acknowledgements
- - **Author** -  Saipriya Thirvakadu | Cloud Engineer 
- - **Contributors** - Max Grossman | Cloud Engineer, Mukul Bihari Prasad | Principal Solutions Architect
- - **Last Updated By/Date** - Saipriya Thirvakadu, Cloud Engineer, January 2021
+## **Acknowledgements**
+
+ - **Author** -  Saipriya Thirvakadu | Sr. Cloud Engineer 
+ - **Contributors** - Aditya Trivedi | Sr. Cloud Engineer
+ - **Last Updated By/Date** - Saipriya Thirvakadu, Sr. Cloud Engineer, June 2024

@@ -12,7 +12,7 @@ In this tutorial, you will learn how to setup Vanity URL leveraging Oracle Cloud
 
 Minimum Requirements: 
 
-Estimated Time: 0.5 hr
+Estimated Time: 30 min
 
 ## **Configure Virtual Cloud Network**
 
@@ -39,7 +39,7 @@ In this lab, we will configure a Virtual Cloud Network for both API Gateway and 
 
 ![](images/pre-req-ingress.png " ")
 
-PORT 80 - HTTP, PORT 443 - HTTPS
+*PORT 80 - HTTP, PORT 443 - HTTPS*
 
 ## **Generate Auth Token**
 
