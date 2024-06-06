@@ -1,44 +1,69 @@
 # Configure HCM instance. 
 
-
 ## Update
 
 ## **Introduction**
 
-- This lab will guide you through the steps to configure the API Gateway URL.
+- This lab will help you enable your Vanity URL feature in your HCM instance.
 
 Estimated Time: 10 minutes
 
-### **Objectives**
+### **Objective**
 
-- Install and configure the Requisition Skill in Oracle Digital Assistant
+- Once the reverse proxy server and the required scripts are setup, you need to enable the Vanity URL feature in your HCM.
 
-## **Step 1:** Install and Configure the Skill
+## **Step 1:** Enable Vanity URL 
 
-1. Sign in to your ODA instance. Click on the hamburger icon on the left and navigate to Development > Store. 
+1. Sign in to your HCM instance with your admin credentials. 
 
-2. Lookup for "PeopleSoft Epro Requester Inquiry Bot". Now, click on the hamburger icon and select Pull.
+2. In the Setup and Maintenance work area, go to:   
 
-    ![](images/pullskill.png " ")
+    ![](images/hcm_setup.png " ")
 
-3. You can either use the same bot or select extend if you would like to further customize the Requisition Skill. 
+    - Setup: Recruiting and Candidate Experience
+    - Functional Area: Recruiting and Candidate Experience Management
+    - Task: Enterprise Recruiting and Candidate Experience Information
 
-    Update the Display Name and Select the Extend button.
+    ![](images/hcm_recruiting_candidate_exp.png " ")
 
-    ![](images/customizeskill.png " ")
+2. Expand the Candidate Experience section and click Edit.
+
+3. Select the Vanity URL option under Corporate Branding. Paste  the API Gateway URL. 
+
+    *Note: If you have an external DNS, use your own domain name instead of API Gateway URL and make sure your DNS is pointing to the API Gateway URL in the backend.*
+
+4. Enter the URL. Select the Use reverse proxy setup option.
+
+    ![](images/hcm_revproxy.png " ")
+
+5. Click Save.
+
+## **Step 2:** Update CORS 
+
+1. Go back to Setup and Maintenance work area. Click on the *Tasks icon* and *Search*. 
+
+    ![](images/hcm_search.png " ")
+
+2. 
+    ![](images/hcm_manage_admin.png " ")
+
+3. Update CORS ORIGINs.
+
+    ```<copy>
+    'self' [Enter vanity url]
+    ```
+
+    ![](images/hcm_origin.png " ")
+
+4. Update CORS Header. 
+
+    ```<copy>
+    , ora-irc-language, ora-irc-access-code, ora-irc-validation-mode, ora-irc-vanity-domain, ora-irc-cx-userid, ora-irc-oauth-token, ora-irc-cx-timestamp, ora-irc-rest-action
+    </copy>```
+
+    ![](images/hcm_headers.png " ")
 
 
-## **Step 2:** Create the web channel for this Skill
-
-1. Click on the hamburger icon and navigate to Development > Channels and click on the + Channel button.
-
-2. Enter the Channel name, Description, Channel type - Oracle Web, Allowed Domain - *, Client authentication enabled - uncheck and select Create.
-
-3. Route the channel to the Skill you have configured in Step 1.
-
-    ![](images/webchannel.png " ")
-
-*NOTE: Copy the generated Channel ID and ODA URI - Ex: "oda-XXXX-da2.data.digitalassistant.oci.oraclecloud.com" in a Notepad.*
 
 You may now *proceed to the next lab*.
 
