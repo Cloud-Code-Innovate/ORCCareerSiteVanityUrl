@@ -12,57 +12,74 @@ Estimated Time: 60 minutes
 
 ## **Step 1: Create a API Gateway** 
 
-1. 
+1. Open the navigation menu and click Developer Services. Under API Management, click Gateways.
+
     ![](images/apigw-navigation.png ".")
 
-2. 
+2. Click Create Gateway and then specify the following values for the API gateway:
+
+    *Name*: The name of the API gateway. Avoid entering confidential information.
+
+    *Type*: Select Public type because we want the API gateway (and the APIs deployed on it) to be publicly accessible. Public API gateways can be reached from the internet, provided an internet gateway is present in the API gateway's VCN.
+
+    *Compartment*: The compartment in which to create the API gateway.
+
+    *Virtual Cloud Network*: Select the network and public subnet we created in the previous lab.
+
+    Hit *Create Gateway* button.
 
     ![](images/apigw-create.png " ")
 
-3. 
+3. Copy the host name and save it in your *notepad*.
+
     ![](images/apigw-copy-hostname.png " ")
 
 ## **Step 2: Create OCI Function** 
 
-1. 
+1. Open the navigation menu and click *Developer Services*. Under *Functions*, *click Applications*.
     ![](images/fn-navigate.png ".")
 
-2. 
+2. Click Create Application.
 
+    *Specify*: 
+
+    *Name*: VanityApp (Example) as the name for the new application. 
+
+    *VCN*: The VCN and subnet in which to run the function. Note that a public subnet requires an internet gateway in the VCN.
     ![](images/fn-create-app.png " ")
 
-3. 
+3. Within the application, click the Getting Started link, and then click Cloud Shell Setup.
     ![](images/fn-launch-cloudshell.png " ")
 
 4. Run the following commands as mentioned under getting started guide:
 
-```<copy>
-##
-fn list context
-fn use context us-ashburn-1
-fn update context oracle.compartment-id <<compartment id>>
-fn update context registry iad.ocir.io/<<tenancy name>>/<<identity>>/[repo-name-prefix]
-</copy>```
+    ```<copy>
+    ##
+    fn list context
+    fn use context us-ashburn-1
+    fn update context oracle.compartment-id <<compartment id>>
+    fn update context registry iad.ocir.io/<<tenancy name>>/<<identity>>/[repo-name-prefix]
+    </copy>```
 
-5. Log into the Registry using the Auth Token as your password
+5. Log into the Registry using the Auth Token as your password.
 
-```<copy>
-##
-docker login region.ocir.io
+    ```<copy>
+    ##
+    docker login region.ocir.io
 
-Enter username - tenancyname/identity/useremail
-Password: Generated token id (Refer Prequisite Lab)
-</copy>```
+    Enter username - tenancyname/identity/useremail
+    Password: Generated token id (Refer Prequisite Lab)
+    </copy>```
 
 
 6. Generate a boiler template:
 
-```<copy>
-##
-fn init --runtime node vanityapp
-cd vanityapp
-ls
-```</copy>
+    ```<copy>
+    ##
+    fn init --runtime node vanityapp
+    cd vanityapp
+    ls
+    ```</copy>
 
 7. Open the vanityapp code in the OCI Code Editor
 
@@ -71,66 +88,66 @@ ls
 
 8. Replace the exisiting code inside func.js with the code below: 
 
-```<copy>
-###
-const fdk=require('@fnproject/fdk');
-const url = require('url');
+    ```<copy>
+    ###
+    const fdk=require('@fnproject/fdk');
+    const url = require('url');
 
-// Call the Fn handler
-fdk.handle(async function(input,ctx){
-let event = ctx.httpGateway;
-let queryData;
-if (event  && event.requestURL) {
-  var adr = event.requestURL;
-  var q = url.parse(adr, true);
-  
-  if (adr) {
-      queryData=q.query;
-  }
-}
-// Update with your HCM base url
-const baseUrl = "https://<<baseurl>>/hcmUI/CandidateExperience";
-const baseVanityPath = ""; //modify if vanity url looks like https://www.vanity.com/careers. The baseVanityPath should be '/careers' in such a case
-const path = q.pathname.replace(baseVanityPath, "");
+    // Call the Fn handler
+    fdk.handle(async function(input,ctx){
+    let event = ctx.httpGateway;
+    let queryData;
+    if (event  && event.requestURL) {
+    var adr = event.requestURL;
+    var q = url.parse(adr, true);
+    
+    if (adr) {
+        queryData=q.query;
+    }
+    }
+    // Update with your HCM base url
+    const baseUrl = "https://<<baseurl>>/hcmUI/CandidateExperience";
+    const baseVanityPath = ""; //modify if vanity url looks like https://www.vanity.com/careers. The baseVanityPath should be '/careers' in such a case
+    const path = q.pathname.replace(baseVanityPath, "");
 
-//handle query parameters
-const queryParameters = queryData;
-let queryParameterString = "";
+    //handle query parameters
+    const queryParameters = queryData;
+    let queryParameterString = "";
 
-Object.keys(queryParameters).map((parameter) => {
-  let string = parameter.toString() + "=" + encodeURIComponent(queryParameters[parameter]);
-  queryParameterString += string + "&";
-});
+    Object.keys(queryParameters).map((parameter) => {
+    let string = parameter.toString() + "=" + encodeURIComponent(queryParameters[parameter]);
+    queryParameterString += string + "&";
+    });
 
-if(queryParameterString.endsWith("&")) {
-  queryParameterString = queryParameterString.substring(0, queryParameterString.length - 1);
-}
-queryParameterString = queryParameterString ? "?" + queryParameterString : "";
+    if(queryParameterString.endsWith("&")) {
+    queryParameterString = queryParameterString.substring(0, queryParameterString.length - 1);
+    }
+    queryParameterString = queryParameterString ? "?" + queryParameterString : "";
 
-const fetchUrl = baseUrl + path + queryParameterString;
-var statusCode = 0;
-var headers = {};
+    const fetchUrl = baseUrl + path + queryParameterString;
+    var statusCode = 0;
+    var headers = {};
 
-const res = await fetch(fetchUrl, {
-  headers: {
-    "ora-irc-vanity-domain": "Y",
-  },
-  redirect: "manual",
-});
+    const res = await fetch(fetchUrl, {
+    headers: {
+        "ora-irc-vanity-domain": "Y",
+    },
+    redirect: "manual",
+    });
 
-var bodyText = await res.text();
+    var bodyText = await res.text();
 
-statusCode = res.status;
-headers = {
-  'Content-Type': res.headers.get('Content-Type'),
-  'Location': res.headers.get('Location')?res.headers.get('Location').replace(baseUrl, "<<sample url>>"):"", //change this sample vanity URL with your vanity url
-};
-event.setResponseHeader("Location",headers.Location);
-event.setResponseHeader("Content-Type",headers["Content-Type"]);
-event.statusCode = statusCode;
-return bodyText;
-})
-</copy>```
+    statusCode = res.status;
+    headers = {
+    'Content-Type': res.headers.get('Content-Type'),
+    'Location': res.headers.get('Location')?res.headers.get('Location').replace(baseUrl, "<<sample url>>"):"", //change this sample vanity URL with your vanity url
+    };
+    event.setResponseHeader("Location",headers.Location);
+    event.setResponseHeader("Content-Type",headers["Content-Type"]);
+    event.statusCode = statusCode;
+    return bodyText;
+    })
+    </copy>```
 
 9. Update the baseurl with your HCM instance url and sample url with your API Gateway URL we copied in *Step 1*. 
 
@@ -138,6 +155,11 @@ return bodyText;
     ![](images/fn-api.png ".")
 
 10. Deploy your Functions app. 
+
+    ```<copy>
+    ##
+    fn -v deploy --app VanityApp
+    </copy>```
 
    ![](images/fn-deploy.png ".")
 

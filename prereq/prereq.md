@@ -59,4 +59,4 @@ You may now *proceed to the next lab*.
  - **Last Updated By/Date** - Saipriya Thirvakadu, Sr. Cloud Engineer, June 2024
 
 ## See an issue?
-Please submit feedback to codeinnovate\_us\_grp@oracle.com. Please include the *workshop name*, *lab* and *step* in your request.  
+Please submit feedback to codeinnovate\_us\_grp@oracle.com. 
