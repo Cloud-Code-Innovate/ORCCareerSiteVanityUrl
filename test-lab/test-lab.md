@@ -1,58 +1,36 @@
-# Test the Requisition Skill
+# Test the Vanity URL
 
 ## Introduction
 
-- This lab will guide you to test the Requisition Skill on the PeopleSoft instance.
+- This lab will guide you to test the Setup for the HCM Vanity.
 
 Estimated Time: 5 minutes
 
 ### Objectives
 
-- Test the Requisition Skill deployed on FSCM PeopleSoft instance
+- Test the setup that was done for the vanity URL
 
-## **Step 1:** Check the Requisition details
+## **Step 1:** Test the Vanity URL in the browser
 
-1. On your PeopleSoft instance, navigate to the Employee Self Service Page.
+1. On your desktop, navigate to the browser of your choice.
 
-    ![](images/EmployeeSelfService.png " ")
+2. Enter the vanity URL in the browser address bar. (ex: https://vanityurl.com)
 
-2. Select the eProcurement tile > My Requisitions. If you don't find any requisitions, go back to the eProcurement page and create a Requisition.
+3. The page should load the HCM Job Page with the hostname being the vanity url.
 
-3. Now select '>' next to any Requisition name to check the details of the requisition.
+ ![](images/ " ")
 
-    ![](images/myreq.png " ")
+## **Step 2:** Verify the loaded HCM site
 
-4. Copy the Item ID in a *Notepad* to verify the item details from the bot.
+1. Move around the site by clicking the buttons to load popups, navigate to links and try searching for jobs. If all of that works then the setup is succesful.
 
-    ![](images/reqdetails.png " ")
-
-## **Step 2:** Test your Skill
-
-1. Go back to the Employee Self Service page and select the New_Skill tile to access your bot.
-
-    ![](images/new_skill.png " ")
-
-2. Test your bot.
-
-    - User: Hi
-    - Bot: Hello! I am a virtual assistant. I can help you inquire on the status of your Requisitions. 
-    You can ask me questions like: 
-
-        1) Where is Item (Item ID)?  
-        2) Where is my ''Item Description'' (part or full Item description)?
-
-    - User: where is item XXX?
-    - Bot: Requisition(s) for Item XXX ......
-
-      ![](images/bot1.png " ")
-
-      ![](images/bot2.png " ")  
+2. 
 
 ## **Summary**
 
-Congratulations, You have successfully deployed the Requisition Skill on PeopleSoft instance.
+Congratulations, You have successfully setup the Vanity URL solution for your HCM instance.
 
 ## Acknowledgements
  - **Author** -  Saipriya Thirvakadu | Cloud Engineer 
- - **Contributors** - Max Grossman | Cloud Engineer, Mukul Bihari Prasad | Principal Solutions Architect
- - **Last Updated By/Date** - Saipriya Thirvakadu, Cloud Engineer, January 2021
+ - **Contributors** - Aditya Trivedi | Cloud Engineer
+ - **Last Updated By/Date** - Saipriya Thirvakadu, Cloud Engineer, June 2024
