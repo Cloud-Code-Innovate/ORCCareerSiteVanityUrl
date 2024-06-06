@@ -57,14 +57,14 @@ Estimated Time: 60 minutes
     ##
     fn list context
     fn use context us-ashburn-1
-    fn update context oracle.compartment-id <<compartment id>>
-    fn update context registry iad.ocir.io/<<tenancy name>>/<<identity>>/[repo-name-prefix]
-    </copy>```
+    fn update context oracle.compartment-id [compartment id]
+    fn update context registry [region].ocir.io/[tenancy name]/[identity]/[repo-name-prefix]
+    
+    ```
 
 5. Log into the Registry using the Auth Token as your password.
 
     ```<copy>
-    ##
     docker login region.ocir.io
 
     Enter username - tenancyname/identity/useremail
@@ -81,7 +81,7 @@ Estimated Time: 60 minutes
     ls
     ```</copy>
 
-7. Open the vanityapp code in the OCI Code Editor
+7. Open the vanityapp code in the OCI Code Editor.
 
 
     ![](images/fn-open-codeeditor.png ".")
@@ -89,7 +89,6 @@ Estimated Time: 60 minutes
 8. Replace the exisiting code inside func.js with the code below: 
 
     ```<copy>
-    ###
     const fdk=require('@fnproject/fdk');
     const url = require('url');
 
@@ -147,7 +146,7 @@ Estimated Time: 60 minutes
     event.statusCode = statusCode;
     return bodyText;
     })
-    </copy>```
+    ```
 
 9. Update the baseurl with your HCM instance url and sample url with your API Gateway URL we copied in *Step 1*. 
 
@@ -157,28 +156,39 @@ Estimated Time: 60 minutes
 10. Deploy your Functions app. 
 
     ```<copy>
-    ##
     fn -v deploy --app VanityApp
-    </copy>```
+    ```
 
    ![](images/fn-deploy.png ".")
 
 ## **Step 3: Create a deployment in the API Gateway** 
 
-1. Switch to the API Gateway section. Create a deployment. 
+1. On the Gateways page in the Console, click the name of the API gateway you created earlier.
+Under Resources, click Deployments, and then click Create Deployment.
 
    ![](images/apigw-create-deployment.png ".")
-2. 
+
+2. Click *From Scratch* and in the Basic Information section, specify:
+
+    - Name for the new API deployment, such as vanity.
+    - Path prefix to add to the path of every route contained in the API deployment, such as */*.
+    - Compartment in which to create the new API deployment.
+
     ![](images/fn-deploy-basicinfo.png ".")
 
-3. 
-    ![](images/fn-deploy-basicinfo.png ".")
+3. Switch to the routes tab.
 
-4. Switch to the routes tab. 
+    - Path as /{endpoints*}.
+    - Methods as *GET*.
+    - Add a single backend.
+    - Backend Type as *Oracle Functions* and select the application and function name created in the *Step 2*.
+
+    Hit the next button and create. 
 
     ![](images/apigw-routes.png ".")
 
-5. 
+4. We have successfully created a deployment and attached an OCI Function as a backend.
+
     ![](images/apigw-vanity-app.png ".")
 
 ## **Acknowledgements**
