@@ -1,4 +1,4 @@
-# Configure the ORC Career Site's Vanity URL. 
+# Configure the ORC Career Site's Vanity URL
 
 ## **Introduction**
 
@@ -32,7 +32,7 @@ Estimated Time: 10 minutes
 
 4. Enter the URL. Select the Use reverse proxy setup option.
 
-    ![](images/hcm_revproxy.png " ")
+    ![](images/hcm_rev_proxy " ")
 
 5. Click Save.
 
