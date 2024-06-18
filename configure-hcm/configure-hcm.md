@@ -32,7 +32,7 @@ Estimated Time: 10 minutes
 
 4. Enter the URL. Select the Use reverse proxy setup option.
 
-    ![](images/hcm_rev_proxy " ")
+    ![](images/hcm_rev_proxy.png " ")
 
 5. Click Save.
 
