@@ -1,8 +1,8 @@
-# Configure HCM instance. 
+# Configure the ORC Career Site's Vanity URL. 
 
 ## **Introduction**
 
-- This lab will help you enable your Vanity URL feature in your HCM instance.
+- This lab will help you enable your Vanity URL feature in your ORC instance.
 
 Estimated Time: 10 minutes
 
@@ -12,7 +12,7 @@ Estimated Time: 10 minutes
 
 ## **Step 1:** Enable Vanity URL 
 
-1. Sign in to your HCM instance with your admin credentials. 
+1. Sign in to your ORC instance with your admin credentials. 
 
 2. In the *Setup and Maintenance* work area, go to:   
 

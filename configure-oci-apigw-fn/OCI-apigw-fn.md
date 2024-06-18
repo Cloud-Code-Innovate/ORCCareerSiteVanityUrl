@@ -104,7 +104,7 @@ Estimated Time: 60 minutes
         queryData=q.query;
     }
     }
-    // Update with your HCM base url
+    // Update with your ORC base url
     const baseUrl = "https://<<baseurl>>/hcmUI/CandidateExperience";
     const baseVanityPath = ""; //modify if vanity url looks like https://www.vanity.com/careers. The baseVanityPath should be '/careers' in such a case
     const path = q.pathname.replace(baseVanityPath, "");
@@ -148,7 +148,7 @@ Estimated Time: 60 minutes
     })
     ```
 
-9. Update the baseurl with your HCM instance url and sample url with your API Gateway URL we copied in *Step 1*. 
+9. Update the baseurl with your ORC url and sample url with your API Gateway URL we copied in *Step 1*. 
 
     ![](images/fn-baseurl.png ".")
     ![](images/fn-api.png ".")
