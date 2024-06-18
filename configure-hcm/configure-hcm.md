@@ -30,7 +30,7 @@ Estimated Time: 10 minutes
 
     *Note: If you have an external DNS, use your own domain name instead of API Gateway URL and make sure your DNS is pointing to the API Gateway URL in the backend.*
 
-4. Enter the URL. Select the Use reverse proxy setup option.
+4. Enter the URL. Select the Use search engine optimized setup.
 
     ![](images/hcm_rev_proxy.png " ")
 
