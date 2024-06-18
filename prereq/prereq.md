@@ -4,9 +4,15 @@
 
 A vanity URL, also known as a branded URL or custom URL, is a shortened and customized version of a URL that users can enter into their browsers instead of the original URL. The vanity URL automatically redirects users to the original URL's site, but the process is invisible to the user. 
 
-This feature allows a customer to map a custom domain to their Fusion Recruiting Candidate Experience, providing an alternative to the typical Oracle domain. Here is the architecture for this solution: 
+Customers seeking to host their Oracle Recruiting Cloud (ORC) Career Site at a custom vanity/branded domain can leverage Oracle Cloud Infrastructure (OCI) services :
 
-![](images/pre-req-architecture.png " ")
+- Create and Deploy an OCI API Gateway that triggers an OCI Function to fetch the Career Site from Cloud HCM Recruiting and relay it back.
+
+- Add a DNS record using the OCI External DNS service to link the custom/branded vanity URL with the deployed OCI API Gateway service URL. 
+
+Refer to the architecture diagram below for more details: 
+
+![](images/pre-req-arch.png " ")
 
 In this tutorial, you will learn how to setup Vanity URL leveraging Oracle Cloud Services.
 
