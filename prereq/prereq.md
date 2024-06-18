@@ -10,7 +10,7 @@ Customers seeking to host their Oracle Recruiting Cloud (ORC) Career Site at a c
 
 Refer to the architecture diagram below for more details: 
 
-![](images/pre-req-arch.png " ")
+![](images/pre-req-architect.png " ")
 
 In this tutorial, you will learn how to setup Vanity URL leveraging Oracle Cloud Services.
 
