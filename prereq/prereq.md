@@ -18,6 +18,38 @@ Minimum Requirements:
 
 Estimated Time: 30 min
 
+## **Create a Compartment**
+
+1. Open the navigation menu and click Identity & Security. Under Identity, click Compartments.
+2. Navigate to the compartment in which you want to create the compartment.
+    - To create the compartment in the tenancy (root compartment) click Create Compartment. 
+    - Otherwise, click through the hierarchy of compartments until you reach the detail page of the compartment in which you want to create the compartment. Then, on the details page, click Create Compartment.
+3. Enter the following information:
+    - Name: A unique name for the compartment with a maximum of 100 characters, including letters, numbers, periods, hyphens, and underscores). The name must be unique across all the compartments in the tenancy. Avoid entering confidential information.
+    - Description: A friendly description. You can change this later.
+    - Parent Compartment: The compartment that you're in is displayed. To choose another compartment to create this compartment in, select it from the list.
+    - Tags: If you have permissions to create a resource, then you also have permissions to apply free-form tags to that resource. To apply a defined tag, you must have permissions to use the tag namespace. For more information about tagging, see Resource Tags. If you're not sure whether to apply tags, skip this option or ask an administrator. You can apply tags later. You can apply tags later.
+    ![](images/pre-req-create-comp.png " ")
+
+4. Click Create Compartment.
+
+## **Create Policies**
+
+1. Open the navigation menu and click Identity & Security. Under Identity, click Policies.
+2. Click Create Policy.
+    - Enter the following information:
+    - Name: A unique name for the policy. The name must be unique across all policies in the tenancy. You can't change this later. Avoid entering confidential information.
+    - Description: A friendly description. You can change this later.
+    - Compartment: If you want to attach the policy to a compartment other than the one you're viewing, select it from list. Where the policy is attached controls who can later modify or delete it (see Policy Attachment).
+    - Enter the policy statements using the policy builder. Use the basic option if you want to choose from common policy templates, which you can also customize. Select Show manual editor if you already know how to write the statements you need and you want to enter them in a text box.
+
+    ```<copy>
+    ##
+    
+    ```
+
+3. Click Create.
+
 ## **Configure Virtual Cloud Network**
 
 A virtual cloud network (VCN) is a virtual, private network that closely resembles a traditional network, with firewall rules and specific types of communication gateways that you can choose. You can designate a subnet to exist either in a single availability domain or across an entire region (regional subnets are recommended). 
