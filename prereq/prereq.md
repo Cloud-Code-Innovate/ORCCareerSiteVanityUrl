@@ -26,12 +26,28 @@ Estimated Time: 30 min
     - Otherwise, click through the hierarchy of compartments until you reach the detail page of the compartment in which you want to create the compartment. Then, on the details page, click Create Compartment.
 3. Enter the following information:
     - Name: A unique name for the compartment with a maximum of 100 characters, including letters, numbers, periods, hyphens, and underscores). The name must be unique across all the compartments in the tenancy. Avoid entering confidential information.
-    - Description: A friendly description. You can change this later.
+    - Description: A friendly  description. You can change this later.
     - Parent Compartment: The compartment that you're in is displayed. To choose another compartment to create this compartment in, select it from the list.
     - Tags: If you have permissions to create a resource, then you also have permissions to apply free-form tags to that resource. To apply a defined tag, you must have permissions to use the tag namespace. For more information about tagging, see Resource Tags. If you're not sure whether to apply tags, skip this option or ask an administrator. You can apply tags later. You can apply tags later.
     ![](images/pre-req-create-comp.png " ")
 
 4. Click Create Compartment.
+
+**Note**: Copy the Compartment OCID in a Notepad.
+
+## **Create a Dynamic Group**
+1. Open the Console, click Identity, and then click Dynamic Groups. A list of the dynamic groups in your tenancy is displayed.
+2. Click Create Dynamic Group. Enter the following:
+    - Name: A unique name for the group. The name must be unique across all groups in your tenancy (dynamic groups and user groups). You can't change this later.
+    - Description: A friendly description. You can't change this in the Console, but you can change it using the API. 
+    - Enter the Matching Rules. Resources that meet the rule criteria are members of the group.
+    - Rule 1: To allow all functions in a compartment to be able to access a resource, enter a rule similar to the following, where "compartment_id" is the OCID of the compartment where the application and associated functions will be deployed:
+
+    ```<copy>
+    ALL {resource.type = 'fnfunc', resource.compartment.id = '[compartment_id]'}
+    ALL {resource.type = 'ApiGateway', resource.compartment.id = '[compartment_id]'}```
+
+    ![](images/pre-req-dg.png " ")
 
 ## **Create Policies**
 
@@ -40,14 +56,26 @@ Estimated Time: 30 min
     - Enter the following information:
     - Name: A unique name for the policy. The name must be unique across all policies in the tenancy. You can't change this later. Avoid entering confidential information.
     - Description: A friendly description. You can change this later.
-    - Compartment: If you want to attach the policy to a compartment other than the one you're viewing, select it from list. Where the policy is attached controls who can later modify or delete it (see Policy Attachment).
+    - Compartment: Select root compartment.
     - Enter the policy statements using the policy builder. Use the basic option if you want to choose from common policy templates, which you can also customize. Select Show manual editor if you already know how to write the statements you need and you want to enter them in a text box.
 
     ```<copy>
     ##
-    
+    Allow dynamic-group [your dynamic group] to use cloud-shell in tenancy
+    Allow dynamic-group [your dynamic group] to manage repos in compartment [compartment name]
+    Allow dynamic-group [your dynamic group] to read objectstorage-namespaces in tenancy
+    Allow dynamic-group [your dynamic group] to manage logging-family in compartment [compartment name]
+    Allow dynamic-group [your dynamic group] to read metrics in compartment [compartment name]
+    Allow dynamic-group [your dynamic group] to manage functions-family in compartment [compartment name]
+    Allow dynamic-group [your dynamic group] to use virtual-network-family in compartment ORC
+    Allow dynamic-group [your dynamic group] to use apm-domains in compartment [compartment name]
+    Allow dynamic-group [your dynamic group] to read vaults in compartment [compartment name]
+    Allow dynamic-group [your dynamic group] to use keys in compartment [compartment name]
+    Allow service faas to use apm-domains in compartment [compartment name]
+    Allow service faas to read repos in tenancy where request.operation='ListContainerImageSignatures'
+    Allow service faas to {KEY_READ} in compartment [compartment name] where request.operation='GetKeyVersion'
+    Allow service faas to {KEY_VERIFY} in compartment [compartment name] where request.operation='Verify'
     ```
-
 3. Click Create.
 
 ## **Configure Virtual Cloud Network**
