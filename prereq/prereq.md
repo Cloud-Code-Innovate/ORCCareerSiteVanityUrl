@@ -4,9 +4,9 @@
 
 Customers seeking to host their Oracle Recruiting Cloud (ORC) Career Site at a custom vanity/branded domain can leverage Oracle Cloud Infrastructure (OCI) services :
 
-- Create and Deploy an OCI API Gateway that triggers an OCI Function to fetch the Career Site from Cloud HCM Recruiting and relay it back.
+- Create and Deploy an OCI API Gateway that triggers an OCI Function to fetch the Career Site from ORC and relay it back.
 
-- Add a DNS record using the OCI External DNS service to link the custom/branded vanity URL with the deployed OCI API Gateway service URL. 
+- **Not included in the lab** - Add a DNS record using the OCI External DNS service to link the custom/branded vanity URL with the deployed OCI API Gateway service URL. 
 
 Refer to the architecture diagram below for more details: 
 
