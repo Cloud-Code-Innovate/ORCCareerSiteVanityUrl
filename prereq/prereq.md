@@ -96,7 +96,7 @@ Next, create the "ORCUsers" that you will create the policy for.
     Allow service faas to {KEY_VERIFY} in compartment [compartment name] where request.operation='Verify'
     ```
 
-    pre-req-policies.png
+    ![](images/pre-req-policies.png " ")
     
 3. Click Create.
 
