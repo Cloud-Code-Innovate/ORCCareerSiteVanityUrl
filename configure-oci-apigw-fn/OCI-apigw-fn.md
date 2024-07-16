@@ -49,7 +49,7 @@ Estimated Time: 60 minutes
     ![](images/fn-create-app.png " ")
 
 3. Within the application, click the Getting Started link, and then click Cloud Shell Setup.
-    ![](images/fn-launch-cloudshell.png " ")
+    ![](images/fn-gettingstarted.png " ")
 
 4. Run the following commands as mentioned under getting started guide:
 

@@ -18,7 +18,7 @@ Minimum Requirements:
 
 Estimated Time: 30 min
 
-## **Create a Compartment**
+## **Create a Compartment** (Optional)
 
 1. Open the navigation menu and click Identity & Security. Under Identity, click Compartments.
 2. Navigate to the compartment in which you want to create the compartment.
@@ -35,13 +35,33 @@ Estimated Time: 30 min
 
 **Note**: Copy the Compartment OCID in a Notepad.
 
+## **Create a User** (Optional)
+
+1. Open the navigation menu and click Identity Security. Under Identity, click Domains.
+2. Click Default to open the Default identity domain.
+3. Under the Identity domain resources on the left, click Users.
+4. Click Create user.    
+
+![](images/pre-req-create-user.png " ")
+
+## **Create a Group** (Optional)
+
+Next, create the "ORCUsers" that you will create the policy for.
+
+1. Open the navigation menu and click Identity Security. Under Identity, click Domains.
+2. Click Default to open the Default identity domain.
+3. Under the Identity domain resources on the left, click Groups.
+4. Click Create group. In the Create group dialog:
+    - Name: Enter a unique name for your group, for example, ORCUsers.
+5. Click Create. 
+![](images/pre-req-create-group.png " ")
+
 ## **Create a Dynamic Group**
 1. Open the Console, click Identity, and then click Dynamic Groups. A list of the dynamic groups in your tenancy is displayed.
 2. Click Create Dynamic Group. Enter the following:
     - Name: A unique name for the group. The name must be unique across all groups in your tenancy (dynamic groups and user groups). You can't change this later.
     - Description: A friendly description. You can't change this in the Console, but you can change it using the API. 
     - Enter the Matching Rules. Resources that meet the rule criteria are members of the group.
-    - Rule 1: To allow all functions in a compartment to be able to access a resource, enter a rule similar to the following, where "compartment_id" is the OCID of the compartment where the application and associated functions will be deployed:
 
     ```<copy>
     ALL {resource.type = 'fnfunc', resource.compartment.id = '[compartment_id]'}
@@ -60,7 +80,6 @@ Estimated Time: 30 min
     - Enter the policy statements using the policy builder. Use the basic option if you want to choose from common policy templates, which you can also customize. Select Show manual editor if you already know how to write the statements you need and you want to enter them in a text box.
 
     ```<copy>
-    ##
     Allow dynamic-group [your dynamic group] to use cloud-shell in tenancy
     Allow dynamic-group [your dynamic group] to manage repos in compartment [compartment name]
     Allow dynamic-group [your dynamic group] to read objectstorage-namespaces in tenancy
@@ -76,6 +95,9 @@ Estimated Time: 30 min
     Allow service faas to {KEY_READ} in compartment [compartment name] where request.operation='GetKeyVersion'
     Allow service faas to {KEY_VERIFY} in compartment [compartment name] where request.operation='Verify'
     ```
+
+    pre-req-policies.png
+    
 3. Click Create.
 
 ## **Configure Virtual Cloud Network**
@@ -115,6 +137,8 @@ To create a new auth token:
 4. Click *Generate Token*. The new auth token is displayed.
 5. Copy the auth token immediately to a secure location from where you can retrieve it later, because you won't see the auth token again in the Console.
 6. Close the Generate Token dialog.
+
+![](images/pre-req-gen-auth.png " ")
 
 ## **Summary**
 
