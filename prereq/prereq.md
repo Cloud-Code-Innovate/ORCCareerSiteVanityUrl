@@ -79,24 +79,29 @@ Next, create the "ORCUsers" that you will create the policy for.
     - Compartment: Select root compartment.
     - Enter the policy statements using the policy builder. Use the basic option if you want to choose from common policy templates, which you can also customize. Select Show manual editor if you already know how to write the statements you need and you want to enter them in a text box.
 
+    **Note: The name of group or dynamic group should be in 'Domain name'/'Group name' format.**
+
     ```<copy>
-    Allow dynamic-group [your dynamic group] to use cloud-shell in tenancy
-    Allow dynamic-group [your dynamic group] to manage repos in compartment [compartment name]
-    Allow dynamic-group [your dynamic group] to read objectstorage-namespaces in tenancy
-    Allow dynamic-group [your dynamic group] to manage logging-family in compartment [compartment name]
-    Allow dynamic-group [your dynamic group] to read metrics in compartment [compartment name]
-    Allow dynamic-group [your dynamic group] to manage functions-family in compartment [compartment name]
-    Allow dynamic-group [your dynamic group] to use virtual-network-family in compartment ORC
-    Allow dynamic-group [your dynamic group] to use apm-domains in compartment [compartment name]
-    Allow dynamic-group [your dynamic group] to read vaults in compartment [compartment name]
-    Allow dynamic-group [your dynamic group] to use keys in compartment [compartment name]
+    Allow group [group] to use cloud-shell in tenancy
+    Allow group [group] to manage repos in compartment [compartment name]
+    Allow group [group] to read objectstorage-namespaces in tenancy
+    Allow group [group] to manage logging-family in compartment [compartment name]
+    Allow group [group] to read metrics in compartment [compartment name]
+    Allow group [group] to manage functions-family in compartment [compartment name]
+    Allow group [group] to use virtual-network-family in compartment ORC
+    Allow group [group] to use apm-domains in compartment [compartment name]
+    Allow group [group] to read vaults in compartment [compartment name]
+    Allow group [group] to use keys in compartment [compartment name]
     Allow service faas to use apm-domains in compartment [compartment name]
     Allow service faas to read repos in tenancy where request.operation='ListContainerImageSignatures'
     Allow service faas to {KEY_READ} in compartment [compartment name] where request.operation='GetKeyVersion'
     Allow service faas to {KEY_VERIFY} in compartment [compartment name] where request.operation='Verify'
+    Allow dynamic-group [dynamic group] to manage functions-family in compartment [compartment name]
+    Allow dynamic-group [dynamic group] to use virtual-network-family in compartment [compartment name]
+    Allow dynamic-group [dynamic group] to manage public-ips in compartment [compartment name]
+    Allow dynamic-group [dynamic group] to use functions-family in compartment [compartment name]
     ```
 
-    ![](images/pre-req-policies.png " ")
     
 3. Click Create.
 
