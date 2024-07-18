@@ -59,7 +59,7 @@ Estimated Time: 10 minutes
 
     ```<copy>
     , ora-irc-language, ora-irc-access-code, ora-irc-validation-mode, ora-irc-vanity-domain, ora-irc-cx-userid, ora-irc-oauth-token, ora-irc-cx-timestamp, ora-irc-rest-action
-    </copy>```
+    ```
 
     ![](images/hcm_headers.png " ")
 
@@ -74,4 +74,4 @@ You may now *proceed to the next lab*.
 
  - **Author** -  Saipriya Thirvakadu | Sr. Cloud Engineer 
  - **Contributors** - Aditya Trivedi | Sr. Cloud Engineer
- - **Last Updated By/Date** - Saipriya Thirvakadu, Sr. Cloud Engineer, June 2024
+ - **Last Updated By/Date** - Saipriya Thirvakadu, Sr. Cloud Engineer, July 2024

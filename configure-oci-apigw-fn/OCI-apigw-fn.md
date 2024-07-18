@@ -56,7 +56,7 @@ Estimated Time: 60 minutes
     ```<copy>
     ##
     fn list context
-    fn use context us-ashburn-1
+    fn use context us-[region]-1
     fn update context oracle.compartment-id [compartment id]
     fn update context registry [region].ocir.io/[tenancy name]/[identity]/[repo-name-prefix]
     
@@ -195,4 +195,4 @@ Under Resources, click Deployments, and then click Create Deployment.
 
  - **Author** -  Saipriya Thirvakadu | Sr. Cloud Engineer 
  - **Contributors** - Aditya Trivedi | Sr. Cloud Engineer
- - **Last Updated By/Date** - Saipriya Thirvakadu, Sr. Cloud Engineer, June 2024
+ - **Last Updated By/Date** - Saipriya Thirvakadu, Sr. Cloud Engineer, July 2024

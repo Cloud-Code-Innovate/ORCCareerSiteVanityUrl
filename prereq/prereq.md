@@ -83,12 +83,14 @@ Next, create the "ORCUsers" that you will create the policy for.
 
     ```<copy>
     Allow group [group] to use cloud-shell in tenancy
+    Allow group [group] to use cloud-shell-public-network in tenancy
     Allow group [group] to manage repos in compartment [compartment name]
     Allow group [group] to read objectstorage-namespaces in tenancy
     Allow group [group] to manage logging-family in compartment [compartment name]
     Allow group [group] to read metrics in compartment [compartment name]
     Allow group [group] to manage functions-family in compartment [compartment name]
-    Allow group [group] to use virtual-network-family in compartment ORC
+    Allow group [group] to manage api-gateway-family in compartment [compartment name]
+    Allow group [group] to use virtual-network-family in compartment [compartment name]
     Allow group [group] to use apm-domains in compartment [compartment name]
     Allow group [group] to read vaults in compartment [compartment name]
     Allow group [group] to use keys in compartment [compartment name]
@@ -102,7 +104,6 @@ Next, create the "ORCUsers" that you will create the policy for.
     Allow dynamic-group [dynamic group] to use functions-family in compartment [compartment name]
     ```
 
-    
 3. Click Create.
 
 ## **Configure Virtual Cloud Network**
@@ -155,7 +156,7 @@ You may now *proceed to the next lab*.
 
  - **Author** -  Saipriya Thirvakadu | Sr. Cloud Engineer 
  - **Contributors** - Aditya Trivedi | Sr. Cloud Engineer
- - **Last Updated By/Date** - Saipriya Thirvakadu, Sr. Cloud Engineer, June 2024
+ - **Last Updated By/Date** - Saipriya Thirvakadu, Sr. Cloud Engineer, July 2024
 
 ## See an issue?
 Please submit feedback to codeinnovate\_us\_grp@oracle.com. 
