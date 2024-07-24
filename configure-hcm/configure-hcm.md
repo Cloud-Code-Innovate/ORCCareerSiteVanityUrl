@@ -8,7 +8,7 @@ Estimated Time: 10 minutes
 
 ### **Objective**
 
-- Once the reverse proxy server and the required scripts are setup, you need to enable the Vanity URL feature in your HCM.
+- Once the API Gateway, OCI Function and the required scripts are setup, you need to enable the Vanity URL feature in your HCM.”.
 
 ## **Step 1:** Enable Vanity URL 
 
