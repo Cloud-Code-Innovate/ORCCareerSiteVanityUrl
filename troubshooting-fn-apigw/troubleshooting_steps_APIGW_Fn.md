@@ -9,7 +9,7 @@ Minimum Requirements:
 Estimated Time: 5 mins
 
 
-## ** OCI API Gateway doesn't invoke OCI Functions**
+## OCI API Gateway doesn't invoke OCI Functions
 
 1. Go back to *API Gateway console*, select the deployment you created and switch to *logs* section under Resources. 
 
