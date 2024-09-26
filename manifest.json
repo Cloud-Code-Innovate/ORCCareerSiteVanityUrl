@@ -15,6 +15,10 @@
           {
             "title": "Lab 3: Test your Setup",
             "filename": "./test-lab/test-lab.md"
+          },
+          {
+            "title": "Lab 4: Troubleshooting Steps",
+            "filename": "./troubshooting-fn-apigw/troubleshooting_steps_APIGW_Fn.md"
           }
     ]
 }
