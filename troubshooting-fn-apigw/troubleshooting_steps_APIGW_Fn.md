@@ -22,7 +22,7 @@ Steps to Troubleshoot:
 
 4. Enable both Access Logs and Execution Logs.
 
- ![](images/APIGW_logs.png " ")
+ ![](images/APIGW_Logs.png " ")
 
 
 *Check OCI Function Logs*:
