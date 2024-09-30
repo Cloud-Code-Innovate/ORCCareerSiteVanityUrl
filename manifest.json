@@ -17,7 +17,7 @@
             "filename": "./test-lab/test-lab.md"
           },
           {
-            "title": "Troubleshooting Steps",
+            "title": "Troubleshooting Steps for OCI Functions and OCI API Gateway",
             "filename": "./troubshooting-fn-apigw/troubleshooting_steps_APIGW_Fn.md"
           }
     ]

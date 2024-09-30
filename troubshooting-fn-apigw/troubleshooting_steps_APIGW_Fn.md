@@ -48,7 +48,7 @@ If the OCI Function is not triggered, you will notice no logs are collected, and
 If you see this error, update the dynamic group policy by adding the following rule:
 
 ```<copy>
-Allow dynamic-group '<Domain>'/'<Dynamic Group>' to use all-resources in compartment <compartment name>
+Allow dynamic-group '[Domain]'/'[Dynamic Group]' to use all-resources in compartment [compartment name]
 ```
 
 ## **Summary**
