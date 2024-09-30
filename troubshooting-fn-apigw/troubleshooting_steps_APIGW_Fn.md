@@ -1,34 +1,51 @@
-# Troubleshooting steps
+# Troubleshooting Steps for OCI Functions and OCI API Gateway
 
 ## **Introduction**
 
-Find out how to troubleshoot problems with OCI Functions and OCI API Gateway, and possible solutions to common issues.
+This guide will help you troubleshoot issues with OCI Functions and OCI API Gateway, providing possible solutions to common problems.
 
-Minimum Requirements: 
+Minimum Requirements: Ensure you have access to the OCI Console and have the necessary permissions.
 
-Estimated Time: 5 mins
+Estimated Time: 5 minutes
 
+## Issue: OCI API Gateway Doesn't Invoke OCI Functions
 
-## OCI API Gateway doesn't invoke OCI Functions
+Steps to Troubleshoot:
 
-1. Go back to *API Gateway console*, select the deployment you created and switch to *logs* section under Resources. 
+*Check API Gateway Logs*:
 
-2. Enable Access logs and Execution logs.  
+1. Go to the *API Gateway Console*.
+
+2. Select the deployment you created.
+
+3. Switch to the Logs section under Resources.
+
+4. Enable both Access Logs and Execution Logs.
 
  ![](images/APIGW_logs.png " ")
 
-3. Perform the above steps for OCI Function as well. 
 
-4. When an API Gateway's URL is called from a browser, do check if the OCI Function endpoint is being triggered or not.
+*Check OCI Function Logs*:
 
-5. If the OCI Function is not triggered, you will notice that there are no logs collected and metrics doesn't show any data. 
+1. Perform similar steps for the *OCI Function* you created in *Lab 2*.
+
+2. Ensure logging is enabled for the function.
+
+*Test the API Gateway URL*:
+
+1. Call the API Gateway's URL from a browser or API client.
+
+2. Verify if the OCI Function endpoint is triggered.
+
+*Verify Logs and Metrics*:
+
+If the OCI Function is not triggered, you will notice no logs are collected, and the metrics dashboard doesn't display any data.
 
  ![](images/FnMetrics.png " ")
 
+*Solution: Update Policies*
 
-**If you see this error:**
-
-Go ahead and add the following policy in the Dynamic group you created. 
+If you see this error, update the dynamic group policy by adding the following rule:
 
 ```<copy>
 Allow dynamic-group '<Domain>'/'<Dynamic Group>' to use all-resources in compartment <compartment name>
@@ -36,7 +53,13 @@ Allow dynamic-group '<Domain>'/'<Dynamic Group>' to use all-resources in compart
 
 ## **Summary**
 
-Review troubleshooting steps for Functions and API Gateway if your encounter more errors. 
+This guide covers the basic troubleshooting steps for OCI Functions and API Gateway. If you encounter further issues, consider revisiting the logs and ensuring that the necessary IAM policies are correctly set up.
+
+For further guidance, review the following documents:
+
+Troubleshooting OCI Functions: https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionstroubleshooting.htm
+
+Troubleshooting API Gateway: https://docs.oracle.com/en-us/iaas/Content/APIGateway/Tasks/apigatewaytroubleshooting.htm
 
 ## **Acknowledgements**
 
