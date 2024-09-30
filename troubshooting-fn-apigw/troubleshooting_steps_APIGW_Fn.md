@@ -8,7 +8,7 @@ Minimum Requirements: Ensure you have access to the OCI Console and have the nec
 
 Estimated Time: 5 minutes
 
-## Issue: OCI API Gateway Doesn't Invoke OCI Functions
+## **Issue: OCI API Gateway Doesn't Invoke OCI Functions**
 
 Steps to Troubleshoot:
 
